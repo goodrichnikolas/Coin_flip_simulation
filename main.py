@@ -19,4 +19,11 @@ win_probability = 0.66  # 66%
 
 final_balance = simulate_flips(starting_amount, bet, flips, win_probability)
 
-print(f'Final balance after {flips} coin flips is ${final_balance}')
+#Get the average of 1000 simulations
+simulations = 1000
+ending_balances = []
+for _ in range(simulations):
+    ending_balances.append(simulate_flips(starting_amount, bet, flips, win_probability))
+
+average_ending_balance = sum(ending_balances) / len(ending_balances)
+print("Average ending balance: ", average_ending_balance)
